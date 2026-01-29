@@ -25,7 +25,7 @@ public class Test43 {
         System.out.println("Osoby pełnoletnie z imieniem na A: " + matching);
     }
 
-    public static <E> ArrayList<E> findAllMatching(TreeSet<E> set,
+    public static <E extends Comparable<? super E>> ArrayList<E> findAllMatching(TreeSet<E> set,
                                                    Predicate<E> condition1, Predicate<E> condition2) {
         ArrayList<E> result = new ArrayList<>();
         for (E item : set) {

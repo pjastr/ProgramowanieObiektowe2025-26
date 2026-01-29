@@ -24,6 +24,7 @@ public class Test35 {
                 commonElements.add(item);
             }
         }
+
         return commonElements;
     }
 }

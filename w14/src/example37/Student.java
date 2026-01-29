@@ -1,6 +1,8 @@
 package example37;
 
 
+import java.util.Objects;
+
 public class Student implements Comparable<Student>{
 
     private String name;
@@ -21,18 +23,15 @@ public class Student implements Comparable<Student>{
     }
 
     @Override
-    public boolean equals(Object otherObject){
-        if (this == otherObject) return true;
-        if (otherObject == null || getClass() != otherObject.getClass()) return false;
-        Student other =  (Student) otherObject;
-        return Double.compare(this.grade, other.grade) == 0 && this.name.equals(other.name);
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return Double.compare(grade, student.grade) == 0 && Objects.equals(name, student.name);
     }
 
     @Override
-    public int hashCode(){
-        int temp = this.name.hashCode();
-        temp = 31* temp + Double.valueOf(this.grade).hashCode();
-        return temp;
+    public int hashCode() {
+        return Objects.hash(name, grade);
     }
 
     @Override
